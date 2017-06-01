@@ -262,6 +262,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CustomerBaseViewModel.cs" />
     <Compile Include="ProductAdminDetails.aspx.cs">
       <DependentUpon>ProductAdminDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -302,7 +303,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
