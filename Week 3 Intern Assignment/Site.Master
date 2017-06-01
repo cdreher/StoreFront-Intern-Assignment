@@ -54,14 +54,14 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a runat="server" style="font-family:'Agency FB'; font-weight: bold;" href="~/">Home</a></li>
-                        <li><a runat="server" style="font-family:'Agency FB'; font-weight: bold;" href="~/About">About</a></li>
-                        <li><a runat="server" style="font-family:'Agency FB'; font-weight: bold;" href="~/Contact">Contact</a></li>
+                        <li><a runat="server" style="font-family:'Agency FB'; font-weight: bold;" href="~/">Search</a></li>
+                        <li><a runat="server" style="font-family:'Agency FB'; font-weight: bold;" href="~/">Profile</a></li>
                     </ul>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" style="font-family:'Agency FB'; font-weight: bold;" href="~/Account/Register">Register</a></li>
-                                <li><a runat="server" style="font-family:'Agency FB'; font-weight: bold;" href="~/Account/Login">Log in</a></li>
+                                <li><a runat="server" style="font-family:'Agency FB'; font-weight: bold;" href="~/Register">Register</a></li>
+                                <li><a runat="server" style="font-family:'Agency FB'; font-weight: bold;" href="~/Login">Log in</a></li>
                             </ul>
                         </AnonymousTemplate>
                         <%--<LoggedInTemplate>
