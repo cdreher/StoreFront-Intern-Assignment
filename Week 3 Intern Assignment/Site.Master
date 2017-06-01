@@ -53,11 +53,26 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" style="font-family:'Agency FB'" href ="~/CustomersAdmin">CustomersAdmin</a></li>
-                        <li><a runat="server" style="font-family:'Agency FB'" href="~/CustomerAdminDetails">CustomerAdminDetails</a></li>
-                        <li><a runat="server" style="font-family:'Agency FB'" href="~/ProductsAdmin">ProductsAdmin</a></li>
-                        <li><a runat="server" style="font-family:'Agency FB'" href="~/ProductAdminDetails">ProductAdminDetails</a></li>
+                        <li><a runat="server" style="font-family:'Agency FB'; font-weight: bold;" href="~/">Home</a></li>
+                        <li><a runat="server" style="font-family:'Agency FB'; font-weight: bold;" href="~/About">About</a></li>
+                        <li><a runat="server" style="font-family:'Agency FB'; font-weight: bold;" href="~/Contact">Contact</a></li>
                     </ul>
+                    <asp:LoginView runat="server" ViewStateMode="Disabled">
+                        <AnonymousTemplate>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a runat="server" style="font-family:'Agency FB'; font-weight: bold;" href="~/Account/Register">Register</a></li>
+                                <li><a runat="server" style="font-family:'Agency FB'; font-weight: bold;" href="~/Account/Login">Log in</a></li>
+                            </ul>
+                        </AnonymousTemplate>
+                        <%--<LoggedInTemplate>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
+                                <li>
+                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                                </li>
+                            </ul>
+                        </LoggedInTemplate>--%>
+                    </asp:LoginView>
                 </div>
             </div>
         </div>
