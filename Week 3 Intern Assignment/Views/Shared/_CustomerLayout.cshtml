@@ -5,11 +5,14 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title></title>
+    <title>@ViewBag.Title - Registration</title>
 </head>
 <body>
     <div> 
-    <p>This is a test layout.</p>
+        @RenderBody();
     </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
 </body>
 </html>
