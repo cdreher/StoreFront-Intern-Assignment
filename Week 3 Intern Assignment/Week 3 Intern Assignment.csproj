@@ -172,7 +172,6 @@
     <Content Include="Content\Site.css" />
     <Content Include="CustomerAdminDetails.aspx" />
     <Content Include="CustomersAdmin.aspx" />
-    <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="flag.png" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -263,13 +262,6 @@
     <Compile Include="CustomersAdmin.aspx.designer.cs">
       <DependentUpon>CustomersAdmin.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -351,6 +343,7 @@
     <Content Include="Views\CustomerBaseViewModels\Details.cshtml" />
     <Content Include="Views\CustomerBaseViewModels\Edit.cshtml" />
     <Content Include="Views\CustomerBaseViewModels\Index.cshtml" />
+    <Content Include="Views\Shared\_ViewStart.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
