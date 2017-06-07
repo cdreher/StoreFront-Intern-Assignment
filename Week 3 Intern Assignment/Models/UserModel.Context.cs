@@ -13,10 +13,10 @@ namespace Week_3_Intern_Assignment.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class StoreFrontEntities3 : DbContext
+    public partial class StoreFrontEntities5 : DbContext
     {
-        public StoreFrontEntities3()
-            : base("name=StoreFrontEntities3")
+        public StoreFrontEntities5()
+            : base("name=StoreFrontEntities5")
         {
         }
     

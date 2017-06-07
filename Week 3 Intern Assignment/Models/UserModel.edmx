@@ -11,7 +11,7 @@
           </Key>
           <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UserName" Type="varchar" MaxLength="200" Nullable="false" />
-          <Property Name="Password" Type="varbinary" MaxLength="500" />
+          <Property Name="Password" Type="varchar" MaxLength="255" />
           <Property Name="EmailAddress" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="IsAdmin" Type="bit" Nullable="false" />
           <Property Name="DateCreated" Type="datetime" />
@@ -33,7 +33,7 @@
           </Key>
           <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UserName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Password" Type="Binary" MaxLength="500" FixedLength="false" />
+          <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="EmailAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="IsAdmin" Type="Boolean" Nullable="false" />
           <Property Name="DateCreated" Type="DateTime" Precision="3" />
@@ -41,7 +41,7 @@
           <Property Name="DateModified" Type="DateTime" Precision="3" />
           <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityContainer Name="StoreFrontEntities3" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="StoreFrontEntities5" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="User_table" EntityType="Self.User_table" />
         </EntityContainer>
       </Schema>
@@ -49,7 +49,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="StoreFrontModelStoreContainer" CdmEntityContainer="StoreFrontEntities3">
+        <EntityContainerMapping StorageEntityContainer="StoreFrontModelStoreContainer" CdmEntityContainer="StoreFrontEntities5">
           <EntitySetMapping Name="User_table">
             <EntityTypeMapping TypeName="StoreFrontModel.User_table">
               <MappingFragment StoreEntitySet="User_table">

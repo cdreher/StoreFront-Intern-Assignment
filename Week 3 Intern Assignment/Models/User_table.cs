@@ -16,7 +16,7 @@ namespace Week_3_Intern_Assignment.Models
     {
         public int UserID { get; set; }
         public string UserName { get; set; }
-        public byte[] Password { get; set; }
+        public string Password { get; set; }
         public string EmailAddress { get; set; }
         public bool IsAdmin { get; set; }
         public Nullable<System.DateTime> DateCreated { get; set; }

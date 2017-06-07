@@ -53,14 +53,16 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" style="font-family:'Agency FB'; font-weight: bold;" href="~/Search">Search</a></li>
-                        <li><a runat="server" style="font-family:'Agency FB'; font-weight: bold;" href="~/Profile">Profile</a></li>
+                        <li><a runat="server" style="font-family:'Agency FB'; font-weight: bold;" href="~/CustomersAdmin">CustomersAdmin</a></li>
+                        <li><a runat="server" style="font-family:'Agency FB'; font-weight: bold;" href="~/CustomerAdminDetails">CustomerAdminDetails</a></li>
+                        <li><a runat="server" style="font-family:'Agency FB'; font-weight: bold;" href="~/ProductsAdmin">ProductsAdmin</a></li>
+                        <li><a runat="server" style="font-family:'Agency FB'; font-weight: bold;" href="~/ProductAdminDetails">ProductAdminDetails</a></li>
                     </ul>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" style="font-family:'Agency FB'; font-weight: bold;" href="~/Register">Register</a></li>
-                                <li><a runat="server" style="font-family:'Agency FB'; font-weight: bold;" href="~/Login">Log in</a></li>
+                                <li><a runat="server" style="font-family:'Agency FB'; font-weight: bold;" href="~/User/Registration">Register</a></li>
+                                <li><a runat="server" style="font-family:'Agency FB'; font-weight: bold;" href="~/User/Login">Log in</a></li>
                             </ul>
                         </AnonymousTemplate>
                         <%--<LoggedInTemplate>
