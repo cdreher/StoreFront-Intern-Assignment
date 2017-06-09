@@ -195,15 +195,12 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>UserModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <Content Include="Images\golfer-black.png" />
+    <Content Include="Images\golfer.gif" />
     <Content Include="Models\UserModel.edmx.diagram">
       <DependentUpon>UserModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="golf ball %282%29.png" />
-    <Content Include="golf ball.png" />
-    <Content Include="golf course.jpg" />
-    <Content Include="golfer-black.png" />
-    <Content Include="golfer.gif" />
     <Content Include="Models\UserModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>UserModel.edmx</DependentUpon>

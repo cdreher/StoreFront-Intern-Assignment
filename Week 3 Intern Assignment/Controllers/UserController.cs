@@ -93,7 +93,7 @@ namespace Week_3_Intern_Assignment.Controllers
                         }
                         else
                         {
-                            return RedirectToAction("Index", "Home");
+                            return RedirectToAction("HomePage", "Home");
                         }
                     }
                     else
