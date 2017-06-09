@@ -4,9 +4,8 @@
     Layout = "~/Views/Shared/_CustomerLayout.cshtml";
 }
 
-<h2>Index</h2>
 
-Welcome @HttpContext.Current.User.Identity.Name
+<h2>Welcome @HttpContext.Current.User.Identity.Name</h2>
 
 @if (Request.IsAuthenticated)
 {

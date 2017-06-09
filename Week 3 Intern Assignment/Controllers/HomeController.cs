@@ -14,5 +14,10 @@ namespace Week_3_Intern_Assignment.Controllers
         {
             return View();
         }
+
+        public ActionResult HomePage()
+        {
+            return View();
+        }
     }
 }
