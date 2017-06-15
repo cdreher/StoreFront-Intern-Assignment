@@ -11,9 +11,15 @@ namespace Week_3_Intern_Assignment.Controllers
     {
         // GET: Search
         private StoreFrontEntities6 db = new StoreFrontEntities6();
-        public ActionResult Search()
+        public ActionResult Index()
         {
             ViewBag.listProducts = db.Product_table.ToList();
+            return View();
+        }
+
+        public ActionResult Search(string searchString)
+        {
+            ViewBag.listProducts = db.Product_table.Where(x => x.ProdDescription == searchString).ToList();
             return View();
         }
     }
