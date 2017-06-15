@@ -14,14 +14,17 @@
             <img alt="" src="~/Images/golfer-black.png" style="width: 155px; height: 139px; margin-left:-10px; margin-top:-25px" />
         </div>
         <h1 style="font-size: 40pt"><strong style="font-family: 'Agency FB'; color: #000080;">Products</strong></h1>
-        <p style="font-size: x-large; color: #4166F5;">Feel free to search below!</p>
+        <p style="font-size: x-large; color: #4166F5;">Feel free to search below! Search either by name or club type, if neither is chosen the filter will not occur.</p>
     </div>
     <div class="container-fluid">
         @using (Html.BeginForm("Search", "Search", FormMethod.Get))
         {
             <p style="font-family: 'Agency FB';">
-                Keyword: <input type="text" name="searchString" />
+                @Html.RadioButton("option", "Name") <text>Name</text>
+                @Html.RadioButton("option", "Description") <text>Club Type</text>
+                <input type="text" name="searchString" />
                 <input type="submit" value="Filter" />
+                @Html.ActionLink("Show all", "Index", "Search")
             </p>
         }
 

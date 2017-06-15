@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Week_3_Intern_Assignment.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace Week_3_Intern_Assignment.Controllers
 {
@@ -17,9 +18,22 @@ namespace Week_3_Intern_Assignment.Controllers
             return View();
         }
 
-        public ActionResult Search(string searchString)
+        public ActionResult Search(string option, string searchString)
         {
-            ViewBag.listProducts = db.Product_table.Where(x => x.ProdDescription == searchString).ToList();
+            if(option == null)
+            {
+                ViewBag.Error = TempData["error"];
+                ViewBag.listProducts = db.Product_table.ToList();
+            }
+            if(option.Equals("Name"))
+            {
+                ViewBag.listProducts = db.Product_table.Where(x => x.ProductName.Contains(searchString)).ToList();
+            }
+            else
+            {
+                ViewBag.listProducts = db.Product_table.Where(x => x.ProdDescription == searchString).ToList();
+            }
+           
             return View();
         }
     }
