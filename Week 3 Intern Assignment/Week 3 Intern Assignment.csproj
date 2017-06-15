@@ -206,6 +206,7 @@
     <Content Include="Images\pingG30.jpg" />
     <Content Include="Images\r15.jpg" />
     <Content Include="Images\scotty.jpg" />
+    <Content Include="Images\shopping-cart-512.gif" />
     <Content Include="Images\titleistAP2.jpg" />
     <Content Include="Images\vokey.jpg" />
     <Content Include="Models\ProductModel.Context.tt">
