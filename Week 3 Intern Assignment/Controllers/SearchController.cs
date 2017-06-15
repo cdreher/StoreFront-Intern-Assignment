@@ -7,21 +7,14 @@ using Week_3_Intern_Assignment.Models;
 
 namespace Week_3_Intern_Assignment.Controllers
 {
-    public class HomeController : Controller
+    public class SearchController : Controller
     {
-        
-        // GET: Home
-        [Authorize]
-        public ActionResult Index()
+        // GET: Search
+        private StoreFrontEntities6 db = new StoreFrontEntities6();
+        public ActionResult Search()
         {
+            ViewBag.listProducts = db.Product_table.ToList();
             return View();
         }
-
-        public ActionResult HomePage()
-        {
-            return View();
-        }
-
-       
     }
 }

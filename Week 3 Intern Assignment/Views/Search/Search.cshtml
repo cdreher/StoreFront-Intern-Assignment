@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Week_3_Intern_Assignment.Models.Product_table>
+@using Week_3_Intern_Assignment.Models
+
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+
+@if (Request.IsAuthenticated)
+{
+    <div class="jumbotron" style="border-style: dashed double dashed double; border-width: 5px; border-color: #000080 #4166f5 #000080 #4166f5; font-family: 'Agency FB'; font-variant: normal; text-transform: inherit;">
+        <div class="row" style="height:10px">
+            <img alt="" src="~/Images/golfer-black.png" style="width: 155px; height: 139px; margin-left:-10px; margin-top:-25px" />
+        </div>
+        <h1 style="font-size: 40pt"><strong style="font-family: 'Agency FB'; color: #000080;">Products</strong></h1>
+        <p style="font-size: x-large; color: #4166F5;">Feel free to search below!</p>
+    </div>
+    <div class="container-fluid">
+        <table class="table">
+            <tr>
+                <th>
+                    <h2 style="font-family:'Agency FB'; font-weight: bold; font-size: 20pt;">Product:</h2>
+                </th>
+                <th>
+                    <h2 style="font-family:'Agency FB'; font-weight: bold; font-size: 20pt;">Price:</h2>
+                </th>
+
+            </tr>
+
+            @foreach (Product_table item in ViewBag.listProducts)
+            {
+                <tr>
+                    <td>
+                        <h3 style="font-family:'Agency FB'; font-size: 15pt; float:left;">@Html.DisplayFor(modelItem => item.ProductName)</h3>
+                    </td>
+
+                    <td>
+                        <h3 style="font-family:'Agency FB'; font-size: 15pt; float:left;">@Html.DisplayFor(modelItem => item.Price)</h3>
+                    </td>
+                    <td>
+                        @if (item.ImageFile != null)
+                    {
+                            <img src="@Url.Content(item.ImageFile)" alt="" style="height:100px; width:100px" />
+                        }
+
+                    </td>
+
+                    <td>
+                        <button style="font-family:'Agency FB'; font-weight: bold; font-size: 15pt; float:right;">@Html.ActionLink("Add to Cart", "Edit", new { id = item.ProductID })</button>
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+}
+else
+{
+    @Html.Action("Index", "Home");
+}
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+
