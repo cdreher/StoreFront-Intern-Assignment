@@ -25,7 +25,7 @@ namespace Week_3_Intern_Assignment.Controllers
                 ViewBag.Error = TempData["error"];
                 ViewBag.listProducts = db.Product_table.ToList();
             }
-            if(option.Equals("Name"))
+            else if(option.Equals("Name"))
             {
                 ViewBag.listProducts = db.Product_table.Where(x => x.ProductName.Contains(searchString)).ToList();
             }

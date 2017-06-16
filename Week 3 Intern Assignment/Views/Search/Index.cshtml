@@ -19,7 +19,7 @@
     <div class="container-fluid">
         @using (Html.BeginForm("Search", "Search", FormMethod.Get))
         {
-            <p style="font-family: 'Agency FB';">
+            <p style="font-family: 'Agency FB'; font-size: 15pt;">
                 @Html.RadioButton("option", "Name") <text>Name</text>
                 @Html.RadioButton("option", "Description") <text>Club Type</text>
                 <input type="text" name="searchString" />
