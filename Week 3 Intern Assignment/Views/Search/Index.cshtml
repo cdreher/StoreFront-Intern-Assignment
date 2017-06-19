@@ -58,12 +58,13 @@
                     </td>
 
                     <td>
-                        <button style="font-family:'Agency FB'; font-weight: bold; font-size: 15pt; float:right;">@Html.ActionLink("Add to Cart", "Edit", new { id = item.ProductID })</button>
+                        <button style="font-family:'Agency FB'; font-weight: bold; font-size: 15pt; float:right;">@Html.ActionLink("Add to Cart", "OrderNow", "Cart", new { id = item.ProductID }, null)</button>
                     </td>
                 </tr>
                 }
 
         </table>
+        
     </div>
 }
 else

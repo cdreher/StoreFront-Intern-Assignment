@@ -28,9 +28,8 @@
                         <li>@Html.ActionLink("Profile", "Index", "Home")</li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right" style="font-family:'Agency FB'; font-weight: bold;">
-                        <li>@Html.ActionLink("Register", "Registration", "User")</li>
                         <li>@Html.ActionLink("Logout", "Index", "Home")</li>
-                        <li><a href="@Url.Action("Cart", "Cart")">
+                        <li><a href="@Url.Action("OrderNow", "Cart", new { id = 0 }, null)">
                                 <img src="~/Images/shopping-cart-512.gif" alt="" height="25px" width="25px" align="left" />
                             </a>
                         </li>

@@ -219,6 +219,16 @@
       <DependentUpon>ProductModel.edmx</DependentUpon>
       <LastGenOutput>ProductModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Models\ShoppingCart.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ShoppingCart.edmx</DependentUpon>
+      <LastGenOutput>ShoppingCart.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ShoppingCart.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ShoppingCart.edmx</DependentUpon>
+      <LastGenOutput>ShoppingCart.cs</LastGenOutput>
+    </Content>
     <Content Include="Models\UserModel.edmx.diagram">
       <DependentUpon>UserModel.edmx</DependentUpon>
     </Content>
@@ -228,6 +238,13 @@
     </EntityDeploy>
     <Content Include="Models\ProductModel.edmx.diagram">
       <DependentUpon>ProductModel.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\ShoppingCart.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ShoppingCart.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ShoppingCart.edmx.diagram">
+      <DependentUpon>ShoppingCart.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Models\UserModel.Context.tt">
@@ -295,6 +312,7 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -324,6 +342,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Extended\User_table.cs" />
+    <Compile Include="Models\Item.cs" />
     <Compile Include="Models\ProductModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -341,6 +360,28 @@
     </Compile>
     <Compile Include="Models\Product_table.cs">
       <DependentUpon>ProductModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ShoppingCart.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ShoppingCart.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ShoppingCart.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ShoppingCart.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ShoppingCart.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ShoppingCart.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ShoppingCartProduct_table.cs">
+      <DependentUpon>ShoppingCart.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ShoppingCartViewModel.cs" />
+    <Compile Include="Models\ShoppingCart_table.cs">
+      <DependentUpon>ShoppingCart.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserLogin.cs" />
     <Compile Include="Models\UserModel.Context.cs">
@@ -413,6 +454,8 @@
     <Content Include="Views\Home\HomePage.cshtml" />
     <Content Include="Views\Search\Index.cshtml" />
     <Content Include="Views\Search\Search.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Cart\Cart.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

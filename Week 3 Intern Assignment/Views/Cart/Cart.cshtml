@@ -1,0 +1,93 @@
+﻿@model IEnumerable<Week_3_Intern_Assignment.Models.ShoppingCartProduct_table>
+@using Week_3_Intern_Assignment.Models
+@using Week_3_Intern_Assignment.Controllers
+
+@{
+    ViewBag.Title = "Cart";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<div class="jumbotron" style="border-style: dashed double dashed double; border-width: 5px; border-color: #000080 #4166f5 #000080 #4166f5; font-family: 'Agency FB'; font-variant: normal; text-transform: inherit;">
+    <div class="row" style="height:10px">
+        <img alt="" src="~/Images/golfer-black.png" style="width: 155px; height: 139px; margin-left:-10px; margin-top:-25px" />
+    </div>
+    <h1 style="font-size: 40pt"><strong style="font-family: 'Agency FB'; color: #000080;">Cart</strong></h1>
+    <p style="font-size: x-large; color: #4166F5;">Below are the products you added to your cart.</p>
+</div>
+
+<div class="container-fluid">
+    <table class="table">
+        <tr>
+            <th></th>
+
+            <th style="font-family:'Agency FB'; font-weight: bold; font-size: 20pt;">
+                Product:
+            </th>
+            <th style="font-family:'Agency FB'; font-weight: bold; font-size: 20pt;">
+                Price:
+            </th>
+            <th style="font-family:'Agency FB'; font-weight: bold; font-size: 20pt;">
+                Quantity:
+            </th>
+            <th style="font-family:'Agency FB'; font-weight: bold; font-size: 20pt;">
+                Subtotal:
+            </th>
+            <th>
+
+            </th>
+
+
+        </tr>
+
+        @{
+            decimal s = 0;
+        }
+        @foreach (Item item in (List<Item>)Session["cart"])
+        {
+            s += item.Pr.Price * item.Quantity;
+            <tr>
+                <td>
+                    <h3 style="font-family:'Agency FB'; font-size: 15pt; float:left;">@Html.ActionLink("Delete", "Delete", "Cart", new { id = item.Pr.ProductID }, null)</h3>
+                </td>
+                <td>
+                    <h3 style="font-family:'Agency FB'; font-size: 15pt; float:left;">@item.Pr.ProductName</h3>
+                </td>
+                <td>
+                    <h3 style="font-family:'Agency FB'; font-size: 15pt; float:left;">@item.Pr.Price</h3>
+                </td>
+                <td>
+                    <h3 style="font-family:'Agency FB'; font-size: 15pt; float:left;">@item.Quantity</h3>
+                </td>
+                <td>
+                    <h3 style="font-family:'Agency FB'; font-size: 15pt; font-weight: bold; float:left;">@(item.Pr.Price * item.Quantity)</h3>
+                </td>
+                <td>
+                    @if (item.Pr.ImageFile != null)
+                    {
+                        <img src="@Url.Content(item.Pr.ImageFile)" alt="" style="height:100px; width:100px" />
+                    }
+                </td>
+
+            </tr>
+
+        }
+
+    </table>
+    
+</div>
+<div class="row">
+    
+    <div class="col-md-3"></div>
+    <div class="col-md-3"></div>
+    <div class="col-md-3" ></div>
+    <div class="col-md-3">
+    <table>
+        <tr>
+            <td colspan="5" style="font-family:'Agency FB'; font-weight: bold; font-size: 25pt;">Total: </td>
+            <td> </td>
+            <td align="right" style="border-style: dashed double dashed double; border-width: 5px; border-color: #000080 #4166f5 #000080 #4166f5; font-family: 'Agency FB';  text-transform: inherit; font-weight: bold; font-size: 25pt; float:right">@s</td>
+        </tr>
+    </table>
+    </div>
+</div>
+<button style="font-family:'Agency FB'; font-weight: bold; font-size: 15pt;">@Html.ActionLink("Continue Shopping", "Index", "Search")</button>
