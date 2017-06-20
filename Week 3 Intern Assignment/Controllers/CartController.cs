@@ -59,12 +59,12 @@ namespace Week_3_Intern_Assignment.Controllers
             }
 
             var v = db.Product_table.Find(id);      //get selected product
-            var x = db.ShoppingCartProduct_table.Where(a => a.ProductID == id && a.ShoppingCartID == s.ShoppingCartID).FirstOrDefault();       
+            var x = db.ShoppingCartProduct_table.Where(a => a.ProductID == id && a.ShoppingCartID == s.ShoppingCartID).FirstOrDefault();
 
-            if (x == null)      
+            if (x == null)      //check to see if product already exists in cart
             {
                 ShoppingCartProduct_table cart = new ShoppingCartProduct_table();
-                cart.ProductID = v.ProductID;       //store product ID in db
+                cart.ProductID = v.ProductID;       //store product in db
                 cart.ShoppingCartID = s.ShoppingCartID;
                 db.ShoppingCartProduct_table.Add(cart);
                 x = cart;
@@ -75,9 +75,9 @@ namespace Week_3_Intern_Assignment.Controllers
             var viewModel = new ShoppingCartViewModel
             {
                 shoppingCart = x,
-                product = db.Product_table.Find(id)
+                product = v
             };
-            
+
             return View("Cart", viewModel);
         }
 

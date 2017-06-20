@@ -11,6 +11,6 @@ namespace Week_3_Intern_Assignment.Models
     {
         public ShoppingCartProduct_table shoppingCart { get; set; }
         public Product_table product { get; set; }
-
+        
     }
 }
