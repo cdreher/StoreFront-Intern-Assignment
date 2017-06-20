@@ -1,6 +1,7 @@
-﻿@model IEnumerable<Week_3_Intern_Assignment.Models.ShoppingCartProduct_table>
+﻿@model Week_3_Intern_Assignment.Models.ShoppingCartViewModel
 @using Week_3_Intern_Assignment.Models
 @using Week_3_Intern_Assignment.Controllers
+
 
 @{
     ViewBag.Title = "Cart";
@@ -42,29 +43,31 @@
         @{
             decimal s = 0;
         }
-        @foreach (Item item in (List<Item>)Session["cart"])
+        @foreach (var item in Model)
         {
-            s += item.Pr.Price * item.Quantity;
+            s += (decimal)(item.product.Price * item.shoppingCart.Quantity);         //PICK UP FROM HERE! not sure if i made the model correctly, but i made a separate entity with ALL tables. 
+                                                                                    //found userID correctly, now getting error on Add to Cart click...something to do with the model --> LINE 75 --> "CartController"
+                                                                                    //NullReferenceException when Cart button is clicked --> line 45 --> "Cart.cshtml"
             <tr>
                 <td>
-                    <h3 style="font-family:'Agency FB'; font-size: 15pt; float:left;">@Html.ActionLink("Delete", "Delete", "Cart", new { id = item.Pr.ProductID }, null)</h3>
+                    <h3 style="font-family:'Agency FB'; font-size: 15pt; float:left;">@Html.ActionLink("Delete", "Delete", "Cart", new { id = item.product.ProductID }, null)</h3>
                 </td>
                 <td>
-                    <h3 style="font-family:'Agency FB'; font-size: 15pt; float:left;">@item.Pr.ProductName</h3>
+                    <h3 style="font-family:'Agency FB'; font-size: 15pt; float:left;">@item.product.ProductName</h3>
                 </td>
                 <td>
-                    <h3 style="font-family:'Agency FB'; font-size: 15pt; float:left;">@item.Pr.Price</h3>
+                    <h3 style="font-family:'Agency FB'; font-size: 15pt; float:left;">@item.product.Price</h3>
                 </td>
                 <td>
-                    <h3 style="font-family:'Agency FB'; font-size: 15pt; float:left;">@item.Quantity</h3>
+                    <h3 style="font-family:'Agency FB'; font-size: 15pt; float:left;">@item.shoppingCart.Quantity</h3>
                 </td>
                 <td>
-                    <h3 style="font-family:'Agency FB'; font-size: 15pt; font-weight: bold; float:left;">@(item.Pr.Price * item.Quantity)</h3>
+                    <h3 style="font-family:'Agency FB'; font-size: 15pt; font-weight: bold; float:left;">@(item.product.Price * item.shoppingCart.Quantity)</h3>
                 </td>
                 <td>
-                    @if (item.Pr.ImageFile != null)
+                    @if (item.product.ImageFile != null)
                     {
-                        <img src="@Url.Content(item.Pr.ImageFile)" alt="" style="height:100px; width:100px" />
+                        <img src="@Url.Content(item.product.ImageFile)" alt="" style="height:100px; width:100px" />
                     }
                 </td>
 

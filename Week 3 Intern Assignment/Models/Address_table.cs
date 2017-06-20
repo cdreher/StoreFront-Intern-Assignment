@@ -12,30 +12,32 @@ namespace Week_3_Intern_Assignment.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Product_table
+    public partial class Address_table
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Product_table()
+        public Address_table()
         {
-            this.OrderProduct_table = new HashSet<OrderProduct_table>();
-            this.ShoppingCartProduct_table = new HashSet<ShoppingCartProduct_table>();
+            this.Order_table = new HashSet<Order_table>();
         }
     
-        public int ProductID { get; set; }
-        public string ProductName { get; set; }
-        public string ProdDescription { get; set; }
-        public bool isPublished { get; set; }
-        public Nullable<int> Quantity { get; set; }
-        public decimal Price { get; set; }
-        public string ImageFile { get; set; }
+        public int AddressID { get; set; }
+        public int UserID { get; set; }
+        public string Address1 { get; set; }
+        public string Address2 { get; set; }
+        public string Address3 { get; set; }
+        public string City { get; set; }
+        public int StateID { get; set; }
+        public string ZipCode { get; set; }
+        public bool isBilling { get; set; }
+        public bool isShipping { get; set; }
         public Nullable<System.DateTime> DateCreated { get; set; }
         public string CreatedBy { get; set; }
         public Nullable<System.DateTime> DateModified { get; set; }
         public string ModifiedBy { get; set; }
     
+        public virtual State_table State_table { get; set; }
+        public virtual User_table User_table { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OrderProduct_table> OrderProduct_table { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ShoppingCartProduct_table> ShoppingCartProduct_table { get; set; }
+        public virtual ICollection<Order_table> Order_table { get; set; }
     }
 }

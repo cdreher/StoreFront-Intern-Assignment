@@ -9,9 +9,10 @@ namespace Week_3_Intern_Assignment.Controllers
 {
     public class CartController : Controller
     {
-        private StoreFrontEntities6 db = new StoreFrontEntities6();     //search-products table
-        private ShoppingCartEntities shop_db = new ShoppingCartEntities();      //shopping cart tables
-        private StoreFrontEntities5 user_db = new StoreFrontEntities5();        //user table
+        private STOREFRONTEntitiesALL db = new STOREFRONTEntitiesALL();
+        //private StoreFrontEntities6 db = new StoreFrontEntities6();     //search-products table
+        //private ShoppingCartEntities shop_db = new ShoppingCartEntities();      //shopping cart tables
+        //private StoreFrontEntities5 user_db = new StoreFrontEntities5();        //user table
 
         // GET: Cart
         public ActionResult Index()
@@ -34,57 +35,50 @@ namespace Week_3_Intern_Assignment.Controllers
 
         //}
 
-        public ActionResult OrderNow(int id)
+        public ActionResult OrderNow(int id, String userName)
         {
             if (id == 0)
             {
                 return View("Cart");
             }
 
-            var s = shop_db.ShoppingCart_table.Find(id);
-            if (s == null)                      
+            var test = db.User_table.Where(a => a.UserName == userName).FirstOrDefault();        //find user
+            int userid = test.UserID;       //get userID
+            var s = db.ShoppingCart_table.Where(a => a.UserID == userid).FirstOrDefault();            //find shopping cart for userID
+
+
+            if (s == null)          //if user doesn't have shopping cart, create new one                   
             {
                 ShoppingCart_table shopCart = new ShoppingCart_table();     //create new cart
 
 
-                shop_db.ShoppingCart_table.Add(shopCart);
-                shop_db.SaveChanges();
+                db.ShoppingCart_table.Add(shopCart);           //add new cart to DB
+                db.SaveChanges();
                 s = shopCart;
-
-                //List<Item> cart = new List<Item>();
-                //cart.Add(new Item(db.Product_table.Find(id), 1));
-                //Session["cart"] = cart;
 
             }
 
             var v = db.Product_table.Find(id);      //get selected product
-            var x = shop_db.ShoppingCartProduct_table.Where(a => a.ProductID == id && a.ShoppingCartID == s.ShoppingCartID).FirstOrDefault();
+            var x = db.ShoppingCartProduct_table.Where(a => a.ProductID == id && a.ShoppingCartID == s.ShoppingCartID).FirstOrDefault();       
 
-            if (x == null)
+            if (x == null)      
             {
                 ShoppingCartProduct_table cart = new ShoppingCartProduct_table();
                 cart.ProductID = v.ProductID;       //store product ID in db
                 cart.ShoppingCartID = s.ShoppingCartID;
-                shop_db.ShoppingCartProduct_table.Add(cart);
+                db.ShoppingCartProduct_table.Add(cart);
                 x = cart;
             }
             x.Quantity++;                    //add quantity of 1 to db
-            shop_db.SaveChanges();
+            db.SaveChanges();
 
-
-            //else
-            //{
-            //    List<Item> cart = (List<Item>)Session["cart"];
-            //    int index = isExisting(id);
-            //    if (index == -1)
-            //        cart.Add(new Item(db.Product_table.Find(id), 1));
-            //    else
-            //    {
-            //        cart[index].Quantity++;
-            //    }
-            //    Session["cart"] = cart;
-            //}
-            return View("Cart");
+            var viewModel = new ShoppingCartViewModel
+            {
+                shoppingCart = x,
+                product = db.Product_table.Find(id)
+            };
+            
+            return View("Cart", viewModel);
         }
 
     }

@@ -14,6 +14,14 @@ namespace Week_3_Intern_Assignment.Models
     
     public partial class User_table
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public User_table()
+        {
+            this.Address_table = new HashSet<Address_table>();
+            this.Order_table = new HashSet<Order_table>();
+            this.ShoppingCart_table = new HashSet<ShoppingCart_table>();
+        }
+    
         public int UserID { get; set; }
         public string UserName { get; set; }
         public string Password { get; set; }
@@ -23,5 +31,12 @@ namespace Week_3_Intern_Assignment.Models
         public string CreatedBy { get; set; }
         public Nullable<System.DateTime> DateModified { get; set; }
         public string ModifiedBy { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Address_table> Address_table { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Order_table> Order_table { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ShoppingCart_table> ShoppingCart_table { get; set; }
     }
 }

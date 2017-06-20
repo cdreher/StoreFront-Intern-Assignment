@@ -209,6 +209,16 @@
     <Content Include="Images\shopping-cart-512.gif" />
     <Content Include="Images\titleistAP2.jpg" />
     <Content Include="Images\vokey.jpg" />
+    <Content Include="Models\ALLtablesModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ALLtablesModel.edmx</DependentUpon>
+      <LastGenOutput>ALLtablesModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ALLtablesModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ALLtablesModel.edmx</DependentUpon>
+      <LastGenOutput>ALLtablesModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Models\ProductModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ProductModel.edmx</DependentUpon>
@@ -218,16 +228,6 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ProductModel.edmx</DependentUpon>
       <LastGenOutput>ProductModel.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\ShoppingCart.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ShoppingCart.edmx</DependentUpon>
-      <LastGenOutput>ShoppingCart.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\ShoppingCart.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ShoppingCart.edmx</DependentUpon>
-      <LastGenOutput>ShoppingCart.cs</LastGenOutput>
     </Content>
     <Content Include="Models\UserModel.edmx.diagram">
       <DependentUpon>UserModel.edmx</DependentUpon>
@@ -239,12 +239,12 @@
     <Content Include="Models\ProductModel.edmx.diagram">
       <DependentUpon>ProductModel.edmx</DependentUpon>
     </Content>
-    <EntityDeploy Include="Models\ShoppingCart.edmx">
+    <EntityDeploy Include="Models\ALLtablesModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ShoppingCart.Designer.cs</LastGenOutput>
+      <LastGenOutput>ALLtablesModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\ShoppingCart.edmx.diagram">
-      <DependentUpon>ShoppingCart.edmx</DependentUpon>
+    <Content Include="Models\ALLtablesModel.edmx.diagram">
+      <DependentUpon>ALLtablesModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Models\UserModel.Context.tt">
@@ -341,8 +341,32 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Address_table.cs">
+      <DependentUpon>ALLtablesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ALLtablesModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ALLtablesModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ALLtablesModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ALLtablesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ALLtablesModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ALLtablesModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\Extended\User_table.cs" />
     <Compile Include="Models\Item.cs" />
+    <Compile Include="Models\OrderProduct_table.cs">
+      <DependentUpon>ALLtablesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Order_table.cs">
+      <DependentUpon>ALLtablesModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ProductModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -359,29 +383,20 @@
       <DependentUpon>ProductModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Product_table.cs">
-      <DependentUpon>ProductModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ShoppingCart.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ShoppingCart.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ShoppingCart.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ShoppingCart.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ShoppingCart.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ShoppingCart.edmx</DependentUpon>
+      <DependentUpon>ALLtablesModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ShoppingCartProduct_table.cs">
-      <DependentUpon>ShoppingCart.tt</DependentUpon>
+      <DependentUpon>ALLtablesModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ShoppingCartViewModel.cs" />
     <Compile Include="Models\ShoppingCart_table.cs">
-      <DependentUpon>ShoppingCart.tt</DependentUpon>
+      <DependentUpon>ALLtablesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\State_table.cs">
+      <DependentUpon>ALLtablesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Status_table.cs">
+      <DependentUpon>ALLtablesModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserLogin.cs" />
     <Compile Include="Models\UserModel.Context.cs">
@@ -400,7 +415,7 @@
       <DependentUpon>UserModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\User_table.cs">
-      <DependentUpon>UserModel.tt</DependentUpon>
+      <DependentUpon>ALLtablesModel.tt</DependentUpon>
     </Compile>
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />

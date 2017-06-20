@@ -58,7 +58,7 @@
                     </td>
 
                     <td>
-                        <button style="font-family:'Agency FB'; font-weight: bold; font-size: 15pt; float:right;">@Html.ActionLink("Add to Cart", "OrderNow", "Cart", new { id = item.ProductID }, null)</button>
+                        <button style="font-family:'Agency FB'; font-weight: bold; font-size: 15pt; float:right;">@Html.ActionLink("Add to Cart", "OrderNow", "Cart", new { id = item.ProductID, userName = HttpContext.Current.User.Identity.Name}, null)</button>
                     </td>
                 </tr>
                 }

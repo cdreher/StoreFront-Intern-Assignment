@@ -12,23 +12,18 @@ namespace Week_3_Intern_Assignment.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class ShoppingCart_table
+    public partial class Status_table
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ShoppingCart_table()
+        public Status_table()
         {
-            this.ShoppingCartProduct_table = new HashSet<ShoppingCartProduct_table>();
+            this.Order_table = new HashSet<Order_table>();
         }
     
-        public int ShoppingCartID { get; set; }
-        public int UserID { get; set; }
-        public System.DateTime DateCreated { get; set; }
-        public string CreatedBy { get; set; }
-        public System.DateTime DateModified { get; set; }
-        public string ModifieidBy { get; set; }
+        public int StatusID { get; set; }
+        public string StatusDescription { get; set; }
     
-        public virtual User_table User_table { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ShoppingCartProduct_table> ShoppingCartProduct_table { get; set; }
+        public virtual ICollection<Order_table> Order_table { get; set; }
     }
 }

@@ -12,30 +12,29 @@ namespace Week_3_Intern_Assignment.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Product_table
+    public partial class Order_table
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Product_table()
+        public Order_table()
         {
             this.OrderProduct_table = new HashSet<OrderProduct_table>();
-            this.ShoppingCartProduct_table = new HashSet<ShoppingCartProduct_table>();
         }
     
-        public int ProductID { get; set; }
-        public string ProductName { get; set; }
-        public string ProdDescription { get; set; }
-        public bool isPublished { get; set; }
-        public Nullable<int> Quantity { get; set; }
-        public decimal Price { get; set; }
-        public string ImageFile { get; set; }
-        public Nullable<System.DateTime> DateCreated { get; set; }
+        public int OrderID { get; set; }
+        public int UserID { get; set; }
+        public int AddressID { get; set; }
+        public System.DateTime OrderDate { get; set; }
+        public decimal Total { get; set; }
+        public int StatusID { get; set; }
+        public System.DateTime DateCreated { get; set; }
         public string CreatedBy { get; set; }
-        public Nullable<System.DateTime> DateModified { get; set; }
+        public System.DateTime DateModified { get; set; }
         public string ModifiedBy { get; set; }
     
+        public virtual Address_table Address_table { get; set; }
+        public virtual Status_table Status_table { get; set; }
+        public virtual User_table User_table { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderProduct_table> OrderProduct_table { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ShoppingCartProduct_table> ShoppingCartProduct_table { get; set; }
     }
 }
