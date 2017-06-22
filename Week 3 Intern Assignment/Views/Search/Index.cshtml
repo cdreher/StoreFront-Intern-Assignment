@@ -27,7 +27,7 @@
                 @Html.ActionLink("Show all", "Index", "Search")
             </p>
         }
-        
+
         <table class="table">
             <tr>
                 <th>
@@ -47,7 +47,7 @@
                     </td>
 
                     <td>
-                        <h3 style="font-family:'Agency FB'; font-size: 15pt; float:left;">@Html.DisplayFor(modelItem => item.Price)</h3>
+                        <h3 style="font-family:'Agency FB'; font-size: 15pt; float:left;">$@Html.DisplayFor(modelItem => item.Price)</h3>
                     </td>
                     <td>
                         @if (item.ImageFile != null)
@@ -58,18 +58,38 @@
                     </td>
 
                     <td>
-                        <button style="font-family:'Agency FB'; font-weight: bold; font-size: 15pt; float:right;">@Html.ActionLink("Add to Cart", "OrderNow", "Cart", new { id = item.ProductID, userName = HttpContext.Current.User.Identity.Name}, null)</button>
+                        <button style="font-family:'Agency FB'; font-weight: bold; font-size: 15pt; float:right;" OnClick="AddToCart(@item.ProductID)">Add to Cart</button>
                     </td>
                 </tr>
-                }
+            }
 
         </table>
-        
+
     </div>
 }
 else
 {
     @Html.Action("Index", "Home");
+}
+
+<script type="text/javascript" src="js/jquery/jquery.js"></script>
+<script src="~/Scripts/jquery-1.10.2.min.js" type="text/javascript"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js" type="text/javascript"></script>
+@section scripts{
+    <script>
+
+        function AddToCart(idFromButton) {
+            $.ajax({
+                type: "POST",
+                url: "@Url.Action("OrderNow", "Cart")",
+            data: { id: idFromButton },
+            success: function (data) {
+                $("#numItems").text(data.amount);
+            }
+        });
+
+        }
+    </script>
 }
 
 @Scripts.Render("~/bundles/jquery")

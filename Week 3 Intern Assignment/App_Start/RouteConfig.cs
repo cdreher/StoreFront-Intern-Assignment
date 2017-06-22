@@ -18,7 +18,7 @@ namespace Week_3_Intern_Assignment
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                    name: "Default",
+                    name: "~/Search/Index",
                     url: "{controller}/{action}/{id}",
                     defaults: new { action = "Index", id = UrlParameter.Optional }
                 );  
