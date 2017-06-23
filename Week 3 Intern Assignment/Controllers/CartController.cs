@@ -66,6 +66,21 @@ namespace Week_3_Intern_Assignment.Controllers
         {
             var user = db.User_table.Where(a => a.UserName == User.Identity.Name).FirstOrDefault();
             var temp = db.ShoppingCart_table.Where(a => a.UserID == user.UserID).FirstOrDefault();            //find shopping cart for userID
+            if (temp == null)          //if user doesn't have shopping cart, create new one                   
+            {
+                ShoppingCart_table shopCart = new ShoppingCart_table();     //create new cart
+                shopCart.UserID = user.UserID;
+                shopCart.ModifieidBy = HttpContext.User.Identity.Name;
+                shopCart.CreatedBy = HttpContext.User.Identity.Name;
+                shopCart.DateCreated = DateTime.Now;
+                shopCart.DateModified = DateTime.Now;
+                //shopCart.ShoppingCartID = userid;
+                db.ShoppingCart_table.Add(shopCart);           //add new cart to DB
+                db.SaveChanges();
+
+                temp = shopCart;
+
+            }
             var productList = db.ShoppingCartProduct_table.Where(a => a.ShoppingCartID == temp.ShoppingCartID).ToList();        //get product list
             return View(productList);
         }

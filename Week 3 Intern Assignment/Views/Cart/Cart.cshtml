@@ -93,10 +93,12 @@
             <td> </td>
             <td id="CartTotal" align="right" style="border-style: dashed double dashed double; border-width: 5px; border-color: #000080 #4166f5 #000080 #4166f5; font-family: 'Agency FB';  text-transform: inherit; font-weight: bold; font-size: 25pt; float:right">$@s.ToString("0.00")</td>
         </tr>
+        <tr> </tr>
     </table>
     </div>
 </div>
 <button style="font-family:'Agency FB'; font-weight: bold; font-size: 15pt;">@Html.ActionLink("Continue Shopping", "Index", "Search")</button>
+<button style="font-family:'Agency FB'; font-weight: bold; font-size: 15pt;margin-left:5px;">@Html.ActionLink("Place Order", "PlaceOrder", "PlaceOrder")</button>
 
 <script type="text/javascript" src="js/jquery/jquery.js"></script>
 <script src="~/Scripts/jquery-1.10.2.min.js" type="text/javascript"></script>
