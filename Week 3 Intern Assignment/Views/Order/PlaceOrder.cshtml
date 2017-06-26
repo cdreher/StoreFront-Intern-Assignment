@@ -1,0 +1,16 @@
+﻿@model IEnumerable<StoreFront.Data.Order_table>
+@{
+    ViewBag.Title = "PlaceOrder";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<div class="jumbotron" style="border-style: dashed double dashed double; border-width: 5px; border-color: #000080 #4166f5 #000080 #4166f5; font-family: 'Agency FB'; font-variant: normal; text-transform: inherit;">
+    <div class="row" style="height:10px">
+        <img alt="" src="~/Images/golfer-black.png" style="width: 155px; height: 139px; margin-left:-10px; margin-top:-25px" />
+    </div>
+    <h1 style="font-size: 40pt"><strong style="font-family: 'Agency FB'; color: #000080;">Place Order</strong></h1>
+    <p style="font-size: x-large; color: #4166F5;">Please complete this form to finish your order.</p>
+</div>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
