@@ -475,7 +475,8 @@
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Cart\Cart.cshtml" />
     <Content Include="Views\Order\Index.cshtml" />
-    <Content Include="Views\Order\PlaceOrder.cshtml" />
+    <Content Include="Views\Order\Address.cshtml" />
+    <Content Include="Views\Order\AddNewAddress.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
