@@ -41,9 +41,15 @@ namespace Week_3_Intern_Assignment.Controllers
 
         public ActionResult ConfirmOrder(Address_table jawn)
         {
+            //GET SHOPPING CART
             var user = db.User_table.Where(a => a.UserName == HttpContext.User.Identity.Name).FirstOrDefault(); //get user
             jawn.UserID = user.UserID;
-            return View("Index");
+            var temp = db.ShoppingCart_table.Where(a => a.UserID == user.UserID).FirstOrDefault();            //find shopping cart for userID
+            var productList = db.ShoppingCartProduct_table.Where(a => a.ShoppingCartID == temp.ShoppingCartID).ToList();        //get product list
+
+            //GET ADDRESS
+            ViewBag.address = db.Address_table.Where(a => a.AddressID == jawn.AddressID).FirstOrDefault();
+            return View(productList);
         }
 
     }

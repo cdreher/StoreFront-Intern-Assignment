@@ -1,0 +1,88 @@
+﻿@model IEnumerable<StoreFront.Data.ShoppingCartProduct_table>
+@using Week_3_Intern_Assignment.Models
+
+@{
+    ViewBag.Title = "ConfirmOrder";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<div class="jumbotron" style="border-style: dashed double dashed double; border-width: 5px; border-color: #000080 #4166f5 #000080 #4166f5; font-family: 'Agency FB'; font-variant: normal; text-transform: inherit;">
+    <div class="row" style="height:10px">
+        <img alt="" src="~/Images/golfer-black.png" style="width: 155px; height: 139px; margin-left:-10px; margin-top:-25px" />
+    </div>
+    <h1 style="font-size: 40pt"><strong style="font-family: 'Agency FB'; color: #000080;">Confirm Order</strong></h1>
+    <p style="font-size: x-large; color: #4166F5;">Below are the details of your order.</p>
+</div>
+
+<div class="container">
+    @Html.Partial("SelectedAddress", new Address_table());
+</div>
+
+<div class="row text-center"><h2 style="font-family:'Agency FB'; font-weight:bold;font-size: 28pt;">Cart</h2><hr /></div>
+<div class="container-fluid">
+    <table class="table" id="myCart">
+        <tr>
+            <th style="font-family:'Agency FB'; font-weight: bold; font-size: 20pt;">
+                Product:
+            </th>
+            <th style="font-family:'Agency FB'; font-weight: bold; font-size: 20pt;">
+                Price:
+            </th>
+            <th style="font-family:'Agency FB'; font-weight: bold; font-size: 20pt;">
+                Quantity:
+            </th>
+            <th>
+
+            </th>
+
+
+        </tr>
+
+        @{
+            decimal s = 0;
+        }
+        @foreach (var item in Model)
+        {
+            s += (decimal)(item.Product_table.Price * item.Quantity);
+            <tr id="rowItem-@item.Product_table.ProductID">
+               
+                <td>
+                    <h3 style="font-family:'Agency FB'; font-size: 15pt; float:left;">@item.Product_table.ProductName</h3>
+                </td>
+                <td>
+                    <h3 style="font-family:'Agency FB'; font-size: 15pt; float:left;">$@item.Product_table.Price.ToString("0.00")</h3>
+                </td>
+                <td>
+                    <h3 style="font-family:'Agency FB'; font-size: 15pt; float:left;">@item.Quantity</h3>
+                </td>
+                <td>
+                    @if (item.Product_table.ImageFile != null)
+                    {
+                        <img src="@Url.Content(item.Product_table.ImageFile)" alt="" style="height:100px; width:100px" />
+                    }
+                </td>
+
+            </tr>
+
+        }
+
+    </table>
+
+</div>
+<div class="row">
+
+    <div class="col-md-3"></div>
+    <div class="col-md-3"></div>
+    <div class="col-md-3"></div>
+    <div class="col-md-3">
+        <table>
+            <tr>
+                <td colspan="5" style="font-family:'Agency FB'; font-weight: bold; font-size: 25pt; ">Total: </td>
+                <td> </td>
+                <td id="CartTotal" align="right" style="border-style: dashed double dashed double; border-width: 5px; border-color: #000080 #4166f5 #000080 #4166f5; font-family: 'Agency FB';  text-transform: inherit; font-weight: bold; font-size: 25pt; float:right">$@s.ToString("0.00")</td>
+            </tr>
+            <tr> </tr>
+        </table>
+    </div>
+</div>
+<button style="font-family:'Agency FB'; font-weight: bold; font-size: 15pt;margin-left:5px;">@Html.ActionLink("Submit Order", "SubmitOrder", "Order")</button>

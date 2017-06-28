@@ -477,6 +477,8 @@
     <Content Include="Views\Order\Index.cshtml" />
     <Content Include="Views\Order\Address.cshtml" />
     <Content Include="Views\Order\AddNewAddress.cshtml" />
+    <Content Include="Views\Order\ConfirmOrder.cshtml" />
+    <Content Include="Views\Order\SelectedAddress.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

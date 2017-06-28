@@ -1,0 +1,49 @@
+﻿@model Week_3_Intern_Assignment.Models.Address_table
+@using Week_3_Intern_Assignment.Models
+@using Week_3_Intern_Assignment.Controllers
+
+@{
+    ViewBag.Title = "SelectedAddress";
+}
+
+<div class="row text-center"><h2 style="font-family:'Agency FB'; font-weight:bold;font-size: 28pt;">Address</h2><hr /></div>
+<div class="container">
+    <label style="font-family:'Agency FB'; font-weight:bold;font-size: 15pt;">Address 1: &nbsp;&nbsp;&nbsp;</label>
+    <label style="font-family:'Agency FB'; font-weight:normal;font-size: 15pt;"> @ViewBag.address.Address1</label>
+    <br />
+
+    <label style="font-family:'Agency FB'; font-weight:bold;font-size: 15pt;">Address 2: &nbsp;&nbsp;&nbsp; </label>
+    <label style="font-family:'Agency FB'; font-weight:normal;font-size: 15pt;"> @ViewBag.address.Address2</label>
+    <br />
+
+    <label style="font-family:'Agency FB'; font-weight:bold;font-size: 15pt;">Address 3: &nbsp;&nbsp;&nbsp;</label>
+    <label style="font-family:'Agency FB'; font-weight:normal;font-size: 15pt;">@ViewBag.address.Address3</label>
+    <br />
+
+    <label style="font-family:'Agency FB'; font-weight:bold;font-size: 15pt;">City: &nbsp;&nbsp;&nbsp;</label>
+    <label style="font-family:'Agency FB'; font-weight:normal;font-size: 15pt;">@ViewBag.address.City</label>
+    <br />
+
+    <label style="font-family:'Agency FB'; font-weight:bold;font-size: 15pt;">State: &nbsp;&nbsp;&nbsp;</label>
+    <label style="font-family:'Agency FB'; font-weight:normal;font-size: 15pt;"> @ViewBag.address.State_table.StateAbbrev</label>
+    <br />
+
+    <label style="font-family:'Agency FB'; font-weight:bold;font-size: 15pt;">Zip Code: &nbsp;&nbsp;&nbsp;</label>
+    <label style="font-family:'Agency FB'; font-weight:normal;font-size: 15pt;"> @ViewBag.address.ZipCode</label>
+    <br />
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
