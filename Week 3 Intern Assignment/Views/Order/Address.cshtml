@@ -17,7 +17,7 @@
     <div class="container">
         <div class="row text-center">
             <h2>Step 1 - Select Address:</h2>
-            @Html.DropDownListFor(model => model.AddressID, ViewBag.listAddresses as List<SelectListItem>, null, new { onchange = "selectedAddress(this);" })
+            @Html.DropDownListFor(model => model.AddressID, ViewBag.listAddresses as List<SelectListItem>, "Select an address", new { onchange = "selectedAddress(this);" })
         </div>
         <div class="row">
             <div class="col-md-10"></div>
@@ -25,9 +25,12 @@
                 <input type="submit" value="Save" style="font-family:'Agency FB'; font-weight: bold; font-size: 15pt;" />
             </div>
         </div>
-        <div id="createPartial" class="hidden">
-            @Html.Partial("AddNewAddress");
-        </div>
+    </div>
+}
+@using (Html.BeginForm("AddNewAddress", "Order", FormMethod.Post))
+{
+    <div id="createPartial" class="hidden">
+        @Html.Partial("AddNewAddress");
     </div>
 }
 

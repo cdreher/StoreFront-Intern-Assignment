@@ -1,0 +1,56 @@
+﻿@model StoreFront.Data.Order_table
+
+@{
+    ViewBag.Title = "General";
+}
+
+
+
+<div>
+  
+    <hr />
+    <dl class="dl-horizontal">
+        <dt style="font-family:'Agency FB'; font-weight:bold;font-size: 15pt;">
+            @Html.DisplayNameFor(model => model.OrderID): 
+        </dt>
+
+        <dd style="font-family:'Agency FB'; font-weight:normal;font-size: 15pt;">
+            @Html.DisplayFor(model => model.OrderID)
+        </dd>
+
+        <dt style="font-family:'Agency FB'; font-weight:bold;font-size: 15pt;">
+            User name:
+        </dt>
+
+        <dd style="font-family:'Agency FB'; font-weight:normal;font-size: 15pt;">
+            @Html.DisplayFor(model => model.User_table.UserName)
+        </dd>
+
+        <dt style="font-family:'Agency FB'; font-weight:bold;font-size: 15pt;">
+            Email: 
+        </dt>
+
+        <dd style="font-family:'Agency FB'; font-weight:normal;font-size: 15pt;">
+            @Html.DisplayFor(model => model.User_table.EmailAddress)
+        </dd>
+
+        <dt style="font-family:'Agency FB'; font-weight:bold;font-size: 15pt;">
+            @Html.DisplayNameFor(model => model.Total): 
+        </dt>
+
+        <dd id="ordertotal"style="font-family:'Agency FB'; font-weight:normal;font-size: 15pt;">
+            $@Html.DisplayFor(model => model.Total)
+        </dd>
+
+        <dt style="font-family:'Agency FB'; font-weight:bold;font-size: 15pt;">
+            Status: 
+        </dt>
+
+        <dd style="font-family:'Agency FB'; font-weight:normal;font-size: 15pt;">
+            @Html.DisplayFor(model => model.Status_table.StatusDescription)
+        </dd>
+
+    </dl>
+    <button style="font-family:'Agency FB'; font-weight:normal;font-size: 15pt;">@Html.ActionLink("↑ Increase workflow status ↑", "IncreaseWorkflow", "Order", Model, null)</button>
+</div>
+

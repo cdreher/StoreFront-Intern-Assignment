@@ -56,9 +56,13 @@ namespace Week_3_Intern_Assignment.Controllers
         [Authorize]
         public ActionResult GetQuantity()
         {
+            var amount = 0;
             var user = db.User_table.Where(a => a.UserName == HttpContext.User.Identity.Name).FirstOrDefault();
             var temp = db.ShoppingCart_table.Where(a => a.UserID == user.UserID).FirstOrDefault();            //find shopping cart for userID
-            var amount = temp.ShoppingCartProduct_table.Sum(a => a.Quantity);
+            if (temp != null)
+            {
+                amount = (int)temp.ShoppingCartProduct_table.Sum(a => a.Quantity);
+            }
             return Json(amount);
         }
 

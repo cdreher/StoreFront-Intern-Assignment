@@ -1,0 +1,49 @@
+﻿@model StoreFront.Data.Order_table
+
+@{
+    ViewBag.Title = "OrderAddress";
+}
+
+
+<div class="container">
+    <hr />
+    <dl class="dl-horizontal">
+        <dt style="font-family:'Agency FB'; font-weight:bold;font-size: 15pt;">Address 1: </dt>
+        <dd style="font-family:'Agency FB'; font-weight:normal;font-size: 15pt;"> @Model.Address_table.Address1</dd>
+ 
+
+        <dt style="font-family:'Agency FB'; font-weight:bold;font-size: 15pt;">Address 2: </dt>
+        <dd style="font-family:'Agency FB'; font-weight:normal;font-size: 15pt;"> @Model.Address_table.Address2</dd>
+      
+
+        <dt style="font-family:'Agency FB'; font-weight:bold;font-size: 15pt;">Address 3: </dt>
+        <dd style="font-family:'Agency FB'; font-weight:normal;font-size: 15pt;">@Model.Address_table.Address3</dd>
+     
+
+        <dt style="font-family:'Agency FB'; font-weight:bold;font-size: 15pt;">City: </dt>
+        <dd style="font-family:'Agency FB'; font-weight:normal;font-size: 15pt;">@Model.Address_table.City</dd>
+    
+
+        <dt style="font-family:'Agency FB'; font-weight:bold;font-size: 15pt;">State: </dt>
+        <dd style="font-family:'Agency FB'; font-weight:normal;font-size: 15pt;"> @Model.Address_table.State_table.StateAbbrev</dd>
+     
+        <dt style="font-family:'Agency FB'; font-weight:bold;font-size: 15pt;">Zip Code: </dt>
+        <dd style="font-family:'Agency FB'; font-weight:normal;font-size: 15pt;"> @Model.Address_table.ZipCode</dd>
+
+    </dl>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

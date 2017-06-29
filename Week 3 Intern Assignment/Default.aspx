@@ -5,7 +5,7 @@
     <div class="jumbotron" style="border-style: dashed double dashed double; border-width: 5px; border-color: #000080 #4166f5 #000080 #4166f5; font-family: 'Agency FB'; font-variant: normal; text-transform: inherit;">
         <div class="row" style="height:10px">
             <a href="CustomersAdmin.aspx"><img alt="Next" src="golf%20ball%20(2).png" style="width: 50px; height: 50px; float:right;" /> </a>        
-            <img alt="" src="golfer-black.png" style="width: 155px; height: 139px; margin-left:-10px; margin-top:-25px" /></div>
+            <img alt="" src="~/Images/golfer-black.png" style="width: 155px; height: 139px; margin-left:-10px; margin-top:-25px" /></div>
         <h1 style="font-size: 40pt"><strong style="font-family: 'Agency FB'; color: #000080;">Golf Shop</strong></h1>
         <p style="font-size: x-large; color: #4166F5;">Welcome to our golf shop. We have the best merchandise around. Feel free to jump around and check things out!</p>
     </div>
