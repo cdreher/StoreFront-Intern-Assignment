@@ -5,8 +5,6 @@
   
     <div class="jumbotron" style="border-style: dashed; border-width: 5px; border-color: #4166F5 #4166f5 #4166F5 #4166f5; font-family: 'Agency FB'; font-variant: normal; text-transform: inherit;">
        <div class="row" style="height:10px">
-           <a href="CustomerAdminDetails.aspx"><img alt="Back" src="golf%20ball.png" style="width: 50px; height: 50px; float:left" /></a>
-            <a href="ProductAdminDetails.aspx"><img alt="Next" src="golf%20ball%20(2).png" style="width: 50px; height: 50px; float:right" /> </a>
         </div> 
        <h1 style="font-size: 40pt"><strong style="font-family: 'Agency FB'; color: #000080;">Golf Shop - ProductsAdmin</strong></h1>
         <p style="font-size: x-large; color: #4166F5;">This page displays the list of products in stock. It also gives you the ability to add a product to our shelves!</p>
@@ -21,6 +19,10 @@
                     <asp:BoundField DataField="ProductName" HeaderText="Product Name" SortExpression="ProductName" />
                     <asp:CheckBoxField DataField="isPublished" HeaderText="isPublished" SortExpression="isPublished" />
                     <asp:BoundField DataField="Price" HeaderText="Price" SortExpression="Price" />
+                    <asp:ImageField DataImageUrlField="ImageFile" HeaderText="ImageFile">
+                        <ControlStyle Height="100px" Width="100px" />
+                        <ItemStyle Height="50px" Width="50px" />
+                    </asp:ImageField>
                 </Columns>
              </asp:GridView>
             <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:StoreFrontConnectionString %>" SelectCommand="spGetProducts" SelectCommandType="StoredProcedure">

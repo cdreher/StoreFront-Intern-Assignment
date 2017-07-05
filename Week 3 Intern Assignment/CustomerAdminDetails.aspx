@@ -5,8 +5,6 @@
   
     <div class="jumbotron" style="border-style: double; border-width: 5px; border-color: navy; font-family: 'Agency FB'; font-variant: normal; text-transform: inherit; color: #4166F5;">
         <div class="row" style="height:10px">
-            <a href="CustomersAdmin.aspx"><img alt="Back" src="golf%20ball.png" style="width: 50px; height: 50px; float:left" /></a>
-            <a href="ProductsAdmin.aspx"><img alt="Next" src="golf%20ball%20(2).png" style="width: 50px; height: 50px; float:right" /> </a>
         </div>
         <h1 style="font-size: 40pt"><strong style="font-family: 'Agency FB'; color: #000080;">Golf Shop - CustomerAdminDetails</strong></h1>
         <p style="font-size: x-large">This page allows&nbsp;you to see details of the selected user! If any portion of this page seems blank, go back to the<em> CustomersAdmin</em> Page and click<em> &quot;Edit&quot;</em> next to any user!</p>
