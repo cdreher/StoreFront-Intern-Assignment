@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Week_3_Intern_Assignment.Models;
-
+using StoreFront.Data;
 namespace Week_3_Intern_Assignment.Controllers
 {
     public class CartController : Controller
     {
-        private STOREFRONTEntitiesALL db = new STOREFRONTEntitiesALL();
+        private StoreFrontEntities db = new StoreFrontEntities();
         
 
         // GET: Cart

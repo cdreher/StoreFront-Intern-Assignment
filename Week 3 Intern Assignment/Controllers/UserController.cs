@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Week_3_Intern_Assignment.Models;
 using System.Web.Security;
+using StoreFront.Data;
 
 namespace Week_3_Intern_Assignment.Controllers
 {
@@ -40,7 +39,7 @@ namespace Week_3_Intern_Assignment.Controllers
                 user.ConfirmPassword = Crypto.Hash(user.ConfirmPassword);
 
                 //Save to database
-                using (StoreFrontEntities5 dc = new StoreFrontEntities5())
+                using (StoreFrontEntities dc = new StoreFrontEntities())
                 {
                     dc.User_table.Add(user);
                     dc.SaveChanges();
@@ -72,7 +71,7 @@ namespace Week_3_Intern_Assignment.Controllers
         public ActionResult Login(UserLogin login, string ReturnUrl="")
         {
             string message = "";
-            using (StoreFrontEntities5 dc = new StoreFrontEntities5())
+            using (StoreFrontEntities dc = new StoreFrontEntities())
             {
                 var v = dc.User_table.Where(a => a.UserName == login.UserName).FirstOrDefault();
                 if(v != null)
@@ -121,7 +120,7 @@ namespace Week_3_Intern_Assignment.Controllers
 
         public bool IsUserNameExist(string userName)
         {
-            using (StoreFrontEntities5 dc = new StoreFrontEntities5())
+            using (StoreFrontEntities dc = new StoreFrontEntities())
             {
                 var v = dc.User_table.Where(a => a.UserName == userName).FirstOrDefault();
                 return v != null;
