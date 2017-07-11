@@ -28,71 +28,163 @@ namespace Week_3_Intern_Assignment.Controllers
             return View();
         }
 
-        [HttpPost]
-        public ActionResult AddNewAddress(Address_table jawn)
+        public ActionResult Address_test(string username)          //FOR UNIT TESTING
         {
-            var user = db.User_table.Where(a => a.UserName == HttpContext.User.Identity.Name).FirstOrDefault(); //get user
-            jawn.UserID = user.UserID;
-            db.Address_table.Add(jawn);
-            db.SaveChanges();
+            var user = db.User_table.Where(a => a.UserName == username).FirstOrDefault();
+            var addresses = db.Address_table.Where(a => a.UserID == user.UserID);
+            List<SelectListItem> li = new SelectList(addresses, "AddressID", "Address1").ToList();
+            li.Add(new SelectListItem { Text = "Enter new address" });
+            ViewBag.listAddresses = li;
+
+            var states = db.State_table.ToList();
+            ViewBag.listStates = new SelectList(states, "StateID", "StateName");
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddNewAddress(Address_table jawn, string username)
+        {
+            //IF STATEMENT FOR UNIT TESTING!!!
+            if (username == null)
+            {
+                var user = db.User_table.Where(a => a.UserName == HttpContext.User.Identity.Name).FirstOrDefault(); //get user
+                jawn.UserID = user.UserID;
+                db.Address_table.Add(jawn);
+                db.SaveChanges();
+            }
+            else
+            {
+                var user = db.User_table.Where(a => a.UserName == username).FirstOrDefault(); //get user
+                jawn.UserID = user.UserID;
+                db.Address_table.Add(jawn);
+                db.SaveChanges();
+            }
+            
 
             return RedirectToAction("Address", "Order");
         }
 
-        public ActionResult ConfirmOrder(Address_table jawn)
+        public ActionResult ConfirmOrder(Address_table jawn, string username)
         {
-            //GET SHOPPING CART
-            var user = db.User_table.Where(a => a.UserName == HttpContext.User.Identity.Name).FirstOrDefault(); //get user
-            jawn.UserID = user.UserID;
-            var temp = db.ShoppingCart_table.Where(a => a.UserID == user.UserID).FirstOrDefault();            //find shopping cart for userID
-            var productList = db.ShoppingCartProduct_table.Where(a => a.ShoppingCartID == temp.ShoppingCartID).ToList();        //get product list
-
-            //GET ADDRESS
-            ViewBag.address = db.Address_table.Where(a => a.AddressID == jawn.AddressID).FirstOrDefault();
-            return View(productList);
-        }
-
-        public ActionResult SubmitOrder(int addID, decimal totalPrice)
-        {
-            //Create Order
-            var user = db.User_table.Where(a => a.UserName == HttpContext.User.Identity.Name).FirstOrDefault(); //get user
-            Order_table order = new Order_table();
-            order.UserID = user.UserID;
-            order.AddressID = addID;
-            order.OrderDate = DateTime.Now;
-
-            var tempTotal = totalPrice;
-
-            order.Total = totalPrice;
-            order.StatusID = 1;
-            order.DateCreated = DateTime.Now;
-            order.DateModified = DateTime.Now;
-            order.CreatedBy = HttpContext.User.Identity.Name;
-            order.ModifiedBy = HttpContext.User.Identity.Name;
-            db.Order_table.Add(order);
-            db.SaveChanges();
-
-            //Create Order_product
-            var temp = db.Order_table.Where(a => a.UserID == user.UserID && a.Total == totalPrice).FirstOrDefault();     //get recently made order
-            var cart = db.ShoppingCart_table.Where(a => a.UserID == user.UserID).FirstOrDefault();            //find shopping cart for userID
-            var productList = db.ShoppingCartProduct_table.Where(a => a.ShoppingCartID == cart.ShoppingCartID).ToList();        //get product list
-            for(int i = 0; i < productList.Count(); i++)
+            //IF STATEMENT FOR UNIT TESTING!!!
+            if (username == null)
             {
-                OrderProduct_table orderProduct = new OrderProduct_table();
-                orderProduct.OrderID = temp.OrderID;
-                orderProduct.ProductID = productList[i].ProductID;
-                orderProduct.Quantity = (int)productList[i].Quantity;
-                orderProduct.Price = productList[i].Product_table.Price;
-                orderProduct.DateCreated = DateTime.Now;
-                orderProduct.DateModified = DateTime.Now;
-                orderProduct.CreatedBy = HttpContext.User.Identity.Name;
-                orderProduct.ModifiedBy = HttpContext.User.Identity.Name;
-                db.OrderProduct_table.Add(orderProduct);
-                db.SaveChanges();
+                //GET SHOPPING CART
+                var user = db.User_table.Where(a => a.UserName == HttpContext.User.Identity.Name).FirstOrDefault(); //get user
+                jawn.UserID = user.UserID;
+                var temp = db.ShoppingCart_table.Where(a => a.UserID == user.UserID).FirstOrDefault();            //find shopping cart for userID
+                var productList = db.ShoppingCartProduct_table.Where(a => a.ShoppingCartID == temp.ShoppingCartID).ToList();        //get product list
 
+                //GET ADDRESS
+                ViewBag.address = db.Address_table.Where(a => a.AddressID == jawn.AddressID).FirstOrDefault();
+                return View(productList);
+            }
+            else
+            {
+                //GET SHOPPING CART
+                var user = db.User_table.Where(a => a.UserName == username).FirstOrDefault(); //get user
+                jawn.UserID = user.UserID;
+                var temp = db.ShoppingCart_table.Where(a => a.UserID == user.UserID).FirstOrDefault();            //find shopping cart for userID
+                var productList = db.ShoppingCartProduct_table.Where(a => a.ShoppingCartID == temp.ShoppingCartID).ToList();        //get product list
+
+                //GET ADDRESS
+                ViewBag.address = db.Address_table.Where(a => a.AddressID == jawn.AddressID).FirstOrDefault();
+                return View(productList);
             }
             
-            return View("Index");
+        }
+
+        public ActionResult SubmitOrder(int addID, decimal totalPrice, string username)
+        {
+            Order_table order = new Order_table();
+            User_table user = new User_table();
+
+            //IF STATEMENT FOR UNIT TESTING!!!
+            if (username == null)
+            {
+                //Create Order
+                user = db.User_table.Where(a => a.UserName == HttpContext.User.Identity.Name).FirstOrDefault(); //get user
+                order.UserID = user.UserID;
+                order.AddressID = addID;
+                order.OrderDate = DateTime.Now;
+
+                var tempTotal = totalPrice;
+
+                order.Total = totalPrice;
+                order.StatusID = 1;
+                order.DateCreated = DateTime.Now;
+                order.DateModified = DateTime.Now;
+                order.CreatedBy = HttpContext.User.Identity.Name;
+                order.ModifiedBy = HttpContext.User.Identity.Name;
+                db.Order_table.Add(order);
+                db.SaveChanges();
+
+                //Create Order_product
+                var temp = db.Order_table.Where(a => a.UserID == user.UserID && a.Total == totalPrice).FirstOrDefault();     //get recently made order
+                var cart = db.ShoppingCart_table.Where(a => a.UserID == user.UserID).FirstOrDefault();            //find shopping cart for userID
+                var productList = db.ShoppingCartProduct_table.Where(a => a.ShoppingCartID == cart.ShoppingCartID).ToList();        //get product list
+                for (int i = 0; i < productList.Count(); i++)
+                {
+                    OrderProduct_table orderProduct = new OrderProduct_table();
+                    orderProduct.OrderID = temp.OrderID;
+                    orderProduct.ProductID = productList[i].ProductID;
+                    orderProduct.Quantity = (int)productList[i].Quantity;
+                    orderProduct.Price = productList[i].Product_table.Price;
+                    orderProduct.DateCreated = DateTime.Now;
+                    orderProduct.DateModified = DateTime.Now;
+                    orderProduct.CreatedBy = HttpContext.User.Identity.Name;
+                    orderProduct.ModifiedBy = HttpContext.User.Identity.Name;
+                    db.OrderProduct_table.Add(orderProduct);
+                    db.SaveChanges();
+
+                }
+
+                return View("Index");
+            }
+            else
+            {
+                //Create Order
+                user = db.User_table.Where(a => a.UserName == username).FirstOrDefault(); //get user
+                order.UserID = user.UserID;
+                order.AddressID = addID;
+                order.OrderDate = DateTime.Now;
+
+                var tempTotal = totalPrice;
+
+                order.Total = totalPrice;
+                order.StatusID = 1;
+                order.DateCreated = DateTime.Now;
+                order.DateModified = DateTime.Now;
+                order.CreatedBy = username;
+                order.ModifiedBy = username;
+                db.Order_table.Add(order);
+                db.SaveChanges();
+
+                //Create Order_product
+                var temp = db.Order_table.Where(a => a.UserID == user.UserID && a.Total == totalPrice).FirstOrDefault();     //get recently made order
+                var cart = db.ShoppingCart_table.Where(a => a.UserID == user.UserID).FirstOrDefault();            //find shopping cart for userID
+                var productList = db.ShoppingCartProduct_table.Where(a => a.ShoppingCartID == cart.ShoppingCartID).ToList();        //get product list
+                for (int i = 0; i < productList.Count(); i++)
+                {
+                    OrderProduct_table orderProduct = new OrderProduct_table();
+                    orderProduct.OrderID = temp.OrderID;
+                    orderProduct.ProductID = productList[i].ProductID;
+                    orderProduct.Quantity = (int)productList[i].Quantity;
+                    orderProduct.Price = productList[i].Product_table.Price;
+                    orderProduct.DateCreated = DateTime.Now;
+                    orderProduct.DateModified = DateTime.Now;
+                    orderProduct.CreatedBy = username;
+                    orderProduct.ModifiedBy = username;
+                    db.OrderProduct_table.Add(orderProduct);
+                    db.SaveChanges();
+
+                }
+
+                return View("Index");
+            }
+                
+            
+            
         }
 
         public ActionResult OrdersAdmin()

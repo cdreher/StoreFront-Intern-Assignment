@@ -4,7 +4,7 @@
     ViewBag.Title = "AddNewAddress";
 }
 
-@using (Html.BeginForm("AddNewAddress", "Order", FormMethod.Post))
+@using (Html.BeginForm("AddNewAddress", "Order", new { username="" }, FormMethod.Post, null))
 {
     <div class="row text-center">
         <h2>Add new address:</h2>

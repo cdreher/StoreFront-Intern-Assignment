@@ -111,7 +111,7 @@
         $.ajax({
             type: "POST",
             url: "@Url.Action("Delete", "Cart")",
-            data: { id: idFromButton },
+            data: { id: idFromButton, username: "" },
             success: function (data) {
                 $("[id^=" + name + "]").fadeOut(1000);
                 $("#CartTotal").text("$"+data.total);
@@ -124,7 +124,7 @@
         $.ajax({
             type: "POST",
             url: "@Url.Action("UpdateQuantity", "Cart")",
-            data: { id: idFromButton, quantity: $("#quantity-" + idFromButton).val() },
+            data: { id: idFromButton, quantity: $("#quantity-" + idFromButton).val(), username: "" },
             success: function (data) {
                 $("#quantity-" + idFromButton).text(data.quantity);
                 $("#subtotal-" + idFromButton).text("$"+data.subtotal).fadeIn(1000);

@@ -82,7 +82,7 @@ else
             $.ajax({
                 type: "POST",
                 url: "@Url.Action("OrderNow", "Cart")",
-            data: { id: idFromButton },
+            data: { id: idFromButton, username: "" },
             success: function (data) {
                 $("#numItems").text(data.amount);
             }
