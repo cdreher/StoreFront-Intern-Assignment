@@ -39,10 +39,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\MSTest.TestFramework.1.1.11\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.dll</HintPath>
@@ -79,6 +79,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ShippingApiUnitTest.cs" />
     <Compile Include="StoreFrontDataTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -90,6 +91,10 @@
     <ProjectReference Include="..\StoreFront.Data\StoreFront.Data.csproj">
       <Project>{ba6e9710-a551-489d-a5ef-69e6608d8197}</Project>
       <Name>StoreFront.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StoreFront.ShippingApi\StoreFront.ShippingApi.csproj">
+      <Project>{31540145-b0b3-4e66-ab05-4c524bc04ee1}</Project>
+      <Name>StoreFront.ShippingApi</Name>
     </ProjectReference>
     <ProjectReference Include="..\Week 3 Intern Assignment\Week 3 Intern Assignment.csproj">
       <Project>{36f57dc5-a25c-4207-aaf0-25af47254fbf}</Project>

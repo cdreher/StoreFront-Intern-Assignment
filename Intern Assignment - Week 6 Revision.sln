@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreFront.Data", "StoreFro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreFront.UnitTest", "StoreFront.UnitTest\StoreFront.UnitTest.csproj", "{4BDC1000-D06B-4DA0-A5C9-BFC075BFE187}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreFront.InventoryService", "StoreFront.InventoryService\StoreFront.InventoryService.csproj", "{9F708346-87C3-499B-AD2D-A9F8EB0DED3D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreFront.ShippingApi", "StoreFront.ShippingApi\StoreFront.ShippingApi.csproj", "{31540145-B0B3-4E66-AB05-4C524BC04EE1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{4BDC1000-D06B-4DA0-A5C9-BFC075BFE187}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4BDC1000-D06B-4DA0-A5C9-BFC075BFE187}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4BDC1000-D06B-4DA0-A5C9-BFC075BFE187}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F708346-87C3-499B-AD2D-A9F8EB0DED3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F708346-87C3-499B-AD2D-A9F8EB0DED3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F708346-87C3-499B-AD2D-A9F8EB0DED3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F708346-87C3-499B-AD2D-A9F8EB0DED3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31540145-B0B3-4E66-AB05-4C524BC04EE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31540145-B0B3-4E66-AB05-4C524BC04EE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31540145-B0B3-4E66-AB05-4C524BC04EE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31540145-B0B3-4E66-AB05-4C524BC04EE1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
