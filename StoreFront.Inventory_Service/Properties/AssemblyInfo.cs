@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("StoreFront.InventoryService")]
+[assembly: AssemblyTitle("StoreFront.Inventory_Service")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("CAI")]
-[assembly: AssemblyProduct("StoreFront.InventoryService")]
+[assembly: AssemblyProduct("StoreFront.Inventory_Service")]
 [assembly: AssemblyCopyright("Copyright © CAI 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("9f708346-87c3-499b-ad2d-a9f8eb0ded3d")]
+[assembly: Guid("89cf5b9a-7660-4622-a141-e4c3a1942f3e")]
 
 // Version information for an assembly consists of the following four values:
 //

@@ -9,65 +9,206 @@
 //------------------------------------------------------------------------------
 
 namespace Week_3_Intern_Assignment.ServiceReference1 {
+    using System.Runtime.Serialization;
+    using System;
     
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService1")]
-    public interface IService1 {
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Product_Item", Namespace="http://schemas.datacontract.org/2004/07/StoreFront.Inventory_Service")]
+    [System.SerializableAttribute()]
+    public partial class Product_Item : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SearchProducts", ReplyAction="http://tempuri.org/IService1/SearchProductsResponse")]
-        StoreFront.Data.Product_table[] SearchProducts(string text);
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SearchProducts", ReplyAction="http://tempuri.org/IService1/SearchProductsResponse")]
-        System.Threading.Tasks.Task<StoreFront.Data.Product_table[]> SearchProductsAsync(string text);
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DesField;
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetProductDetails", ReplyAction="http://tempuri.org/IService1/GetProductDetailsResponse")]
-        StoreFront.Data.Product_table GetProductDetails(int id);
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ImageFileField;
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetProductDetails", ReplyAction="http://tempuri.org/IService1/GetProductDetailsResponse")]
-        System.Threading.Tasks.Task<StoreFront.Data.Product_table> GetProductDetailsAsync(int id);
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal PriceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ProdIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ProdNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int QuantityField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Des {
+            get {
+                return this.DesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DesField, value) != true)) {
+                    this.DesField = value;
+                    this.RaisePropertyChanged("Des");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ImageFile {
+            get {
+                return this.ImageFileField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ImageFileField, value) != true)) {
+                    this.ImageFileField = value;
+                    this.RaisePropertyChanged("ImageFile");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal Price {
+            get {
+                return this.PriceField;
+            }
+            set {
+                if ((this.PriceField.Equals(value) != true)) {
+                    this.PriceField = value;
+                    this.RaisePropertyChanged("Price");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ProdID {
+            get {
+                return this.ProdIDField;
+            }
+            set {
+                if ((this.ProdIDField.Equals(value) != true)) {
+                    this.ProdIDField = value;
+                    this.RaisePropertyChanged("ProdID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ProdName {
+            get {
+                return this.ProdNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProdNameField, value) != true)) {
+                    this.ProdNameField = value;
+                    this.RaisePropertyChanged("ProdName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Quantity {
+            get {
+                return this.QuantityField;
+            }
+            set {
+                if ((this.QuantityField.Equals(value) != true)) {
+                    this.QuantityField = value;
+                    this.RaisePropertyChanged("Quantity");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IService1Channel : Week_3_Intern_Assignment.ServiceReference1.IService1, System.ServiceModel.IClientChannel {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IInventoryService")]
+    public interface IInventoryService {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInventoryService/DoWork", ReplyAction="http://tempuri.org/IInventoryService/DoWorkResponse")]
+        int DoWork(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInventoryService/DoWork", ReplyAction="http://tempuri.org/IInventoryService/DoWorkResponse")]
+        System.Threading.Tasks.Task<int> DoWorkAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInventoryService/SearchProducts", ReplyAction="http://tempuri.org/IInventoryService/SearchProductsResponse")]
+        Week_3_Intern_Assignment.ServiceReference1.Product_Item[] SearchProducts(string text);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInventoryService/SearchProducts", ReplyAction="http://tempuri.org/IInventoryService/SearchProductsResponse")]
+        System.Threading.Tasks.Task<Week_3_Intern_Assignment.ServiceReference1.Product_Item[]> SearchProductsAsync(string text);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInventoryService/GetProductDetails", ReplyAction="http://tempuri.org/IInventoryService/GetProductDetailsResponse")]
+        Week_3_Intern_Assignment.ServiceReference1.Product_Item[] GetProductDetails(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInventoryService/GetProductDetails", ReplyAction="http://tempuri.org/IInventoryService/GetProductDetailsResponse")]
+        System.Threading.Tasks.Task<Week_3_Intern_Assignment.ServiceReference1.Product_Item[]> GetProductDetailsAsync(int id);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IInventoryServiceChannel : Week_3_Intern_Assignment.ServiceReference1.IInventoryService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class Service1Client : System.ServiceModel.ClientBase<Week_3_Intern_Assignment.ServiceReference1.IService1>, Week_3_Intern_Assignment.ServiceReference1.IService1 {
+    public partial class InventoryServiceClient : System.ServiceModel.ClientBase<Week_3_Intern_Assignment.ServiceReference1.IInventoryService>, Week_3_Intern_Assignment.ServiceReference1.IInventoryService {
         
-        public Service1Client() {
+        public InventoryServiceClient() {
         }
         
-        public Service1Client(string endpointConfigurationName) : 
+        public InventoryServiceClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public Service1Client(string endpointConfigurationName, string remoteAddress) : 
+        public InventoryServiceClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public Service1Client(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public InventoryServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public Service1Client(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public InventoryServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         
-        public StoreFront.Data.Product_table[] SearchProducts(string text) {
+        public int DoWork(int id) {
+            return base.Channel.DoWork(id);
+        }
+        
+        public System.Threading.Tasks.Task<int> DoWorkAsync(int id) {
+            return base.Channel.DoWorkAsync(id);
+        }
+        
+        public Week_3_Intern_Assignment.ServiceReference1.Product_Item[] SearchProducts(string text) {
             return base.Channel.SearchProducts(text);
         }
         
-        public System.Threading.Tasks.Task<StoreFront.Data.Product_table[]> SearchProductsAsync(string text) {
+        public System.Threading.Tasks.Task<Week_3_Intern_Assignment.ServiceReference1.Product_Item[]> SearchProductsAsync(string text) {
             return base.Channel.SearchProductsAsync(text);
         }
         
-        public StoreFront.Data.Product_table GetProductDetails(int id) {
+        public Week_3_Intern_Assignment.ServiceReference1.Product_Item[] GetProductDetails(int id) {
             return base.Channel.GetProductDetails(id);
         }
         
-        public System.Threading.Tasks.Task<StoreFront.Data.Product_table> GetProductDetailsAsync(int id) {
+        public System.Threading.Tasks.Task<Week_3_Intern_Assignment.ServiceReference1.Product_Item[]> GetProductDetailsAsync(int id) {
             return base.Channel.GetProductDetailsAsync(id);
         }
     }
