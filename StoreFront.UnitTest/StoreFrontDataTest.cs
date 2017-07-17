@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using StoreFront.Data;
 using Week_3_Intern_Assignment.Controllers;
+using Week_3_Intern_Assignment;
 using System.Web.Mvc;
 using System.Data.Entity;
 using System.Web;
@@ -112,24 +113,70 @@ namespace StoreFront.UnitTest
         }
 
 //-----------------------------------------------------------------------------------------------------------------------------
-//----- USER CONTROLLER TESTS ------------------------------------------------------------------------------------------------------------
+//----- SQL Security TESTS ------------------------------------------------------------------------------------------------------------
 
         [TestMethod]
-        public void User_Registration_Test()            //test user registration
+        public void Authenticate_User_Test()            //test user authentication
+        {
+            //ARRANGE
+            SqlSecurityManager manager = new SqlSecurityManager();
+            UserController controller = new UserController();
+            manager.UserName = "cdreher26";
+            manager.Password = Crypto.Hash("Collin52697");
+
+            //ACT
+            ActionResult actual = controller.Login(manager);
+
+            //ASSERT
+            Assert.IsNotNull(actual);
+        }
+
+        [TestMethod]
+        public void IsAdmin_Test()            //test isAdmin
+        {
+            //ARRANGE
+            string username = "Collin Dreher";
+
+            //ASSERT
+            Assert.IsTrue(SqlSecurityManager.IsAdmin(username));
+        }
+
+        [TestMethod]
+        public void LoadUser_Test()            //test load user
+        {
+            //ARRANGE
+            string username = "cdreher26";
+
+            //ASSERT
+            Assert.IsNotNull(SqlSecurityManager.LoadUser(username));
+        }
+
+        [TestMethod]
+        public void Registration_Test()            //test user registration
         {
             //ARRANGE
             UserController controller = new UserController();
             User_table user = new User_table();
-            user.UserName = "thisisatestusername";
+            user.UserName = "abcdef";
             user.Password = "test";
             user.ConfirmPassword = "test";
-            user.EmailAddress = "cdreher1234@gmail.com";
+            user.EmailAddress = "abcdef@gmail.com";
 
             //ACT
             ActionResult actual = controller.Registration(user);
 
             //ASSERT
             Assert.IsNotNull(actual);
+        }
+
+        [TestMethod]
+        public void Delete_User_test()            //test user delete
+        {
+            //ARRANGE
+            string username = "UNIT_TEST";
+            
+            //ASSERT
+            Assert.IsNotNull(SqlSecurityManager.DeleteUser(username));
         }
 
 //-----------------------------------------------------------------------------------------------------------------------------

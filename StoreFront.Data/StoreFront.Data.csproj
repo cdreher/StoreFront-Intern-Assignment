@@ -142,7 +142,6 @@
     <Compile Include="Status_table.cs">
       <DependentUpon>MyModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="UserLogin.cs" />
     <Compile Include="User_table.cs">
       <DependentUpon>MyModel.tt</DependentUpon>
     </Compile>

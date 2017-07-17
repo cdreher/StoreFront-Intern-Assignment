@@ -28,7 +28,6 @@ namespace Week_3_Intern_Assignment
         protected void getProdDets_Click(object sender, EventArgs e)
         {
             int id = prodID.Text.AsInt();
-            var test = service.GetProductDetails(id);
             GridView2.DataSource = service.GetProductDetails(id);
             GridView2.DataBind();
         }

@@ -34,18 +34,9 @@ namespace Week_3_Intern_Assignment.Controllers
                     return View(user);
                 }
 
-                //Password Hashing
-                user.Password = Crypto.Hash(user.Password);
-                user.ConfirmPassword = Crypto.Hash(user.ConfirmPassword);
-
-                //Save to database
-                using (StoreFrontEntities dc = new StoreFrontEntities())
-                {
-                    dc.User_table.Add(user);
-                    dc.SaveChanges();
-                    message = "Registration successful!";
-                    status = true;
-                }
+                SqlSecurityManager.RegisterUser(user);
+                message = "Registration successful!";
+                status = true;
             }
             else
             {
@@ -68,7 +59,7 @@ namespace Week_3_Intern_Assignment.Controllers
         //Login POST
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(UserLogin login, string ReturnUrl="")
+        public ActionResult Login(SqlSecurityManager login, string ReturnUrl="")
         {
             string message = "";
             using (StoreFrontEntities dc = new StoreFrontEntities())
@@ -76,7 +67,7 @@ namespace Week_3_Intern_Assignment.Controllers
                 var v = dc.User_table.Where(a => a.UserName == login.UserName).FirstOrDefault();
                 if(v != null)
                 {
-                    if (string.Compare(Crypto.Hash(login.Password), v.Password) == 0)
+                    if (SqlSecurityManager.AuthenticateUser(login.UserName, login.Password))
                     {
                         int timeout = login.RememberMe ? 525600 : 1;  //525600 min = 1 year
                         var ticket = new FormsAuthenticationTicket(login.UserName, login.RememberMe, timeout);

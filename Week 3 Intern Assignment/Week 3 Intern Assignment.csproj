@@ -429,7 +429,6 @@
     <Compile Include="Models\Status_table.cs">
       <DependentUpon>ALLtablesModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\UserLogin.cs" />
     <Compile Include="Models\UserModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -466,6 +465,7 @@
       <DependentUpon>ProductsAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlSecurityManager.cs" />
     <Compile Include="WebServiceTest.aspx.cs">
       <DependentUpon>WebServiceTest.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
